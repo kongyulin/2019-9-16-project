@@ -1,6 +1,7 @@
 <template>
 <div id="navbar">
-  <div>首页</div>
+  <router-link to="/">首页</router-link>
+    <router-link to="/login">注册</router-link>
 </div>
 </template>
 <script>

@@ -1,21 +1,17 @@
 <template>
   <div id="app">
-   <Home></Home>
-   <Login></Login>
+    <div id="navbar">
+  <router-link to="/">首页</router-link>
+    <router-link to="/login">注册</router-link>
+</div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Home from './views/home.vue'
-
-import Login from './components/login.vue'
-
 export default {
   name: 'app',
-  components: {
-    Home,
-    Login
-  }
+  components: {},
 }
 </script>
 
@@ -24,5 +20,8 @@ body{
   padding: 0px;
   margin: 0px;
 }
-
+#navbar{
+    background: pink;
+    height: 50px;
+}
 </style>

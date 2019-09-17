@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <el-form
+    <div id="forms">
+      <el-form
       :model="ruleForm"
       :rules="rules"
       ref="ruleForm"
@@ -21,6 +22,7 @@
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
+    </div>
   </div>
 </template>
 
@@ -90,7 +92,7 @@ export default {
 </script>
 
 <style>
-#app {
+#forms {
   width: 400px;
   height: 300px;
 }
