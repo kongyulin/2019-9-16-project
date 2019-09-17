@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Home from './components/home.vue'
+import Home from './views/home.vue'
 
 export default {
   name: 'app',
@@ -16,5 +16,9 @@ export default {
 </script>
 
 <style>
+body{
+  padding: 0px;
+  margin: 0px;
+}
 
 </style>
