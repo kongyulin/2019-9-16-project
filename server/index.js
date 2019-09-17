@@ -24,10 +24,15 @@ global.mydb = mysql.createConnection({
 });
 mydb.connect();
 
-app.use('/home',require('./controller/home'))
+app.get('/home', (req, res) => {
+    let sql = `SELECT * FROM slider`
+    mydb.query(sql, (err, result) => {
+        if (!err) {
+            res.send(result)
+        }
+    })
 
-
-
+})
 
 app.listen(8081,()=>{
     console.log('Server started on 8081')
