@@ -1,6 +1,23 @@
 const express = require('express');
 const app=express();
 const mysql = require('mysql');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
+const bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// 启用cookie
+let secret = 'app.h5190304.com';
+app.use(cookieParser(secret));
+// 启用session
+app.use(session({
+    secret: secret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 7 * 24 * 3600000 }
+}))
 
 // 跨域
 app.use((req, res, next) => {
@@ -24,6 +41,7 @@ global.mydb = mysql.createConnection({
 });
 mydb.connect();
 
+// 首页数据
 app.get('/home', (req, res) => {
     let sql = `SELECT * FROM slider`
     mydb.query(sql, (err, result) => {
@@ -31,8 +49,14 @@ app.get('/home', (req, res) => {
             res.send(result)
         }
     })
-
 })
+
+// app.get('/', (req, res) => {
+//     res.send('首页');
+// });
+
+// 登录/注册  子路由
+// app.use('/login', require('./controller/login'))
 
 app.listen(8081,()=>{
     console.log('Server started on 8081')
