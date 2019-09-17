@@ -1,0 +1,25 @@
+{
+  "name": "2019-9-16-project",
+  "version": "1.0.0",
+  "description": "项目",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kongyulin/2019-9-16-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kongyulin/2019-9-16-project/issues"
+  },
+  "homepage": "https://github.com/kongyulin/2019-9-16-project#readme"
+}
