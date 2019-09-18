@@ -1,7 +1,7 @@
 <template>
   <div id="cont">
     <div class="swpervideo">
-      <el-carousel trigger="click" height=" 560px" :interval="12000" arrow="always">
+      <el-carousel trigger="click" height="560px" :interval="12000" arrow="always">
         <el-carousel-item v-for="item in Videoswper" :key="item.id">
           <video
             id="my-video"
@@ -97,6 +97,9 @@ export default {
   width: 100%;
   height: 560px;
   background: yellow;
+}
+#my-video{
+  height:560px;
 }
 .swpervideo {
   width: 1349px;
