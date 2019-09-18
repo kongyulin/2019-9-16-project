@@ -56,7 +56,5 @@ body{
     margin-left: 40px;
     color: white;
 }
-#navbar>a:nth-child(3){
- 
-}
+
 </style>
