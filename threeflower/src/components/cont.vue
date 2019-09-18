@@ -17,6 +17,39 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+<div class="title">耀舞东方</div>
+<div class="da_earth">
+<div v-for="item in danceArr" :key="item.id">
+  <img :src="item.img1" alt="">
+  <div>{{item.text}}</div>
+</div>
+</div>
+<div class="pechion">
+  <div>
+  <div v-for="item in PechArr" :key="item.id">
+    <img :src="item.img1" alt="">
+  </div>
+  </div>
+  <div class="pectitle">PECHONE</div>
+</div>
+
+<div class="swper">
+  <div>
+    <el-carousel indicator-position="outside" trigger="click" height=" 350px" width="1169px" :interval="5000" arrow="always">
+    <el-carousel-item v-for="item in swperArr" :key="item.id">
+      <div class="swperlist">
+      <div>
+        <div class="smallimg"><img :src="item.img1" alt=""></div>
+        <div><h2>{{item.text}}</h2></div>
+        <div><a>查看详情</a></div>
+      </div>
+     <div><img :src="item.img2" alt=""></div>
+     </div>
+    </el-carousel-item>
+  </el-carousel>
+  </div>
+</div>
+
   </div>
 </template>
 <script>
@@ -25,7 +58,10 @@ export default {
   components: {},
   data() {
     return {
-      Videoswper: []
+      Videoswper: [],
+      danceArr:[],
+      PechArr:[],
+      swperArr:[]
     };
   },
   methods: {},
@@ -39,8 +75,15 @@ export default {
         for (let index = 0; index < homeArr.length; index++) {
           if (homeArr[index].classify == "video") {
             that.Videoswper.push(homeArr[index]);
+          }else if(homeArr[index].classify == "dance_earth"){
+             that.danceArr.push(homeArr[index]);
+          }else if(homeArr[index].classify == "pechoin"){
+             that.PechArr.push(homeArr[index]);
+          }else if(homeArr[index].classify == "swper"){
+             that.swperArr.push(homeArr[index]);
           }
         }
+        // console.log(that.PechArr)
       })
       .catch(function(error) {
         window.console.log(error);
@@ -60,5 +103,96 @@ export default {
   height: 560px;
   margin: 0 auto;
   /* background: red; */
+}
+.da_earth{
+  width: 1169px;
+  height: 400px;
+  background: pink;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px auto;
+}
+.da_earth>div{
+  width: 275px;
+  height: 300px;
+}
+.da_earth img{
+  width: 275px;
+  height: 250px;
+}
+.title{
+  width: 1169px;
+  height: 120px;
+  margin: 0px auto;
+
+  font-size: 28px;
+  line-height: 100px;
+}
+.pechion{
+   width: 100%;
+  height: 400px;
+  background: red;
+}
+.pechion>div{
+   width: 100%;
+  height: 300px;
+  background: #1D4B84;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.pechion div>img{
+  width: 275px;
+  height: 172px;
+}
+.pechion>.pectitle{
+  width: 100%;
+  height: 100px;
+  font-size: 36px;
+  font-weight: 900;
+   background: palegreen;
+}
+.swper{
+  width: 100%;
+  height: 425px;
+  background: #E5E5E5;
+}
+.swper>div{
+  height: 350px;
+   width:1169px;
+   background: pink;
+   margin: 0px auto;
+}
+.swperlist{
+   height: 350px;
+   width:1169px;
+   display: flex;
+}
+.swperlist>div{
+   height:100%;
+   width:50%;
+   background: white;
+}
+.swperlist>div>div{
+   width:100%;
+   text-align: center;
+   padding: 5px 0px;
+}
+.swperlist>div>div>a{
+ border: 4px solid #2CCE6C;
+padding: 10px;
+color: #2CCE6C;
+}
+.swperlist>div>img{
+   height:100%;
+   width:100%;
+   background: white;
+}
+.swperlist>div:nth-child(1){
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+ 
 }
 </style>

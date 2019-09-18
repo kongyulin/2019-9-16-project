@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="navbar">
-  <router-link to="/">首页</router-link>
+    <router-link to="/">首页</router-link>
     <router-link to="/login">注册</router-link>
 </div>
     <router-view></router-view>
@@ -9,9 +9,12 @@
 </template>
 
 <script>
+// import Home from './views/home.vue'
 export default {
   name: 'app',
-  components: {},
+  components: {
+    
+  },
 }
 </script>
 
