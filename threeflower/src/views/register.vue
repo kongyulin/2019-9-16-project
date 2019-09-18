@@ -12,10 +12,10 @@
         <el-input v-model="ruleForm.name" placeholder="请输入用户名"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="pass">
-        <el-input type="password" v-model="ruleForm.pass" placeholder="请输入密码" autocomplete="off"></el-input>
+        <el-input type="password" v-model="ruleForm.pass" placeholder="请输入密码" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item label="确认密码" prop="checkPass">
-        <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+        <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>

@@ -198,4 +198,7 @@ color: #2CCE6C;
   justify-content: center;
  
 }
+#my-video{
+  height: 560px;
+}
 </style>
