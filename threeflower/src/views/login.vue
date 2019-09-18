@@ -2,26 +2,24 @@
   <div id="app">
     <div id="forms">
       <el-form
-      :model="ruleForm"
-      :rules="rules"
-      ref="ruleForm"
-      label-width="100px"
-      class="demo-ruleForm"
-    >
-      <el-form-item label="用户名" prop="name">
-        <el-input v-model="ruleForm.name" placeholder="请输入用户名"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="pass">
-        <el-input type="password" v-model="ruleForm.pass" placeholder="请输入密码" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
-        <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
+        :model="ruleForm"
+        :rules="rules"
+        ref="ruleForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item label="用户名" prop="name">
+          <el-input v-model="ruleForm.name" placeholder="请输入用户名"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" prop="pass">
+          <el-input v-model="ruleForm.pass" placeholder="请输入密码"></el-input>
+        </el-form-item>
+
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+          <el-button @click="resetForm('ruleForm')">重置</el-button>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
@@ -29,30 +27,11 @@
 <script>
 export default {
   data() {
-    var validatePass = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("请输入密码"));
-      } else {
-        if (this.ruleForm.checkPass !== "") {
-          this.$refs.ruleForm.validateField("checkPass");
-        }
-        callback();
-      }
-    };
-    var validatePass2 = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("请再次输入密码"));
-      } else if (value !== this.ruleForm.pass) {
-        callback(new Error("两次输入密码不一致!"));
-      } else {
-        callback();
-      }
-    };
     return {
+      userinfo:{},
       ruleForm: {
         name: "",
-        pass: "",
-        checkPass: ""
+        pass: ""
       },
       rules: {
         name: [
@@ -63,12 +42,8 @@ export default {
           {
             required: true,
             message: "请输入密码",
-            validator: validatePass,
             trigger: "blur"
           }
-        ],
-        checkPass: [
-          { required: true, validator: validatePass2, trigger: "blur" }
         ]
       }
     };
@@ -77,9 +52,27 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
+          let that = this;
+          this.$ajax
+            .post("http://localhost:8081/user/login", this.ruleForm)
+            .then(function(response) {
+              window.console.log(response.data.userinfo);
+              that.userinfo=response.data.userinfo;
+              if (response.data.msg == "same") {
+                alert("登录成功");
+                that.$store.dispatch('setAccount',that.userinfo);
+                that.$router.push("/");
+              }else if(response.data.msg == "different"){
+                alert("密码错误");
+              }else if(response.data.msg == "none"){
+                alert("用户不存在");
+              }
+            })
+            .catch(function(error) {
+              window.console.log(error);
+            });
         } else {
-          console.log("error submit!!");
+          window.console.log("error submit!!");
           return false;
         }
       });
@@ -91,9 +84,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #forms {
   width: 400px;
-  height: 300px;
+  height: 180px;
+  border: 1px solid brown;
+  padding: 30px 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

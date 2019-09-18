@@ -51,12 +51,15 @@ app.get('/home', (req, res) => {
     })
 })
 
-// app.get('/', (req, res) => {
-//     res.send('首页');
-// });
 
 // 登录/注册  子路由
-// app.use('/login', require('./controller/login'))
+app.use('/user', require('./controller/login'))
+
+// 搜索页面数据  子路由
+app.use('/shop',require('./controller/shopdetial'))
+
+
+
 
 app.listen(8081,()=>{
     console.log('Server started on 8081')

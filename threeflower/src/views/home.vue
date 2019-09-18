@@ -22,7 +22,7 @@ export default {
         
     },
   mounted: function() {
-    
+    window.console.log( this.$store.getters.getuname)
   }
 };
 </script>
