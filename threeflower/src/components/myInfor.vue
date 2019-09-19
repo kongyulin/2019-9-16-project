@@ -1,6 +1,10 @@
 <template>
   <div id="myInfor">
-    dsdsf
+    <!-- 昵称修改 -->
+    <div>昵称</div>
+
+    <!-- 用户头像修改 -->
+    <div>头像</div>
   </div>
 </template>
 <script>

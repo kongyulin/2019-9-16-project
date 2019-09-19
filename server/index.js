@@ -60,7 +60,6 @@ app.use('/shop',require('./controller/shopdetial'))
 
 
 
-
 app.listen(8081,()=>{
     console.log('Server started on 8081')
 })
