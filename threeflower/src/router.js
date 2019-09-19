@@ -5,7 +5,7 @@ import Login from './views/login.vue'
 import Register from './views/register.vue'
 import User from './views/user.vue'
 import Shoplist from './views/shoplist.vue'
-
+import Search from './views/search.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -32,6 +32,11 @@ export default new Router({
     {
       path: '/shoplist',
       component: Shoplist
+    },
+    {
+      path: '/search',
+      component: Search
     }
+
   ]
 })

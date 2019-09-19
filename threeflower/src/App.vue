@@ -9,7 +9,8 @@
  <div class="inputbox">
     <el-input
     placeholder="请输入内容"
-    v-model="input4">
+    v-model="inputword"
+    @click="Search('inputword')">
     <i slot="prefix" class="el-input__icon el-icon-search"></i>
   </el-input>
   </div>
@@ -38,7 +39,12 @@ export default {
   },
   data(){
     return {
-      input4:""
+      inputword:""
+    }
+  },
+  methods:{
+    Search(inputword){
+
     }
   }
 }
