@@ -6,6 +6,13 @@
       <router-link to="/">首页</router-link>
       <router-link to="/shoplist">商品列表</router-link>
       </div>
+ <div class="inputbox">
+    <el-input
+    placeholder="请输入内容"
+    v-model="input4">
+    <i slot="prefix" class="el-input__icon el-icon-search"></i>
+  </el-input>
+  </div>
       <div>
       <span v-if='this.$store.getters.getuname.name' style="color:white">
         {{this.$store.getters.getuname.name}}
@@ -29,6 +36,11 @@ export default {
   components: {
     
   },
+  data(){
+    return {
+      input4:""
+    }
+  }
 }
 </script>
 
@@ -55,6 +67,25 @@ body{
     text-decoration: none;
     margin-left: 40px;
     color: white;
+}
+.inputbox{
+  width: 300px;
+  height: 30px;
+  margin-left: 350px;
+}
+.inputbox /deep/ .el-input{
+    height: 30px;
+    border-radius: 30px;
+    overflow: hidden;
+   
+}
+.inputbox /deep/ .el-input__inner{
+    height: 30px;
+    /* background: none; */
+     /* border-radius: 30px; */
+}
+.inputbox /deep/ .el-input__icon{
+margin-top: -5px;
 }
 
 </style>

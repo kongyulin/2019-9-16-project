@@ -14,6 +14,7 @@
           >
             <source :src="item.video1" type="video/mp4" />
           </video>
+          <img :src="item.img1" alt="" class="videoimg">
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -35,7 +36,7 @@
 
 <div class="swper">
   <div>
-    <el-carousel indicator-position="outside" trigger="click" height=" 350px" width="1169px" :interval="5000" arrow="always">
+    <el-carousel indicator-position="outside" trigger="click" height=" 350px" width="1169px" :interval="2000" arrow="always">
     <el-carousel-item v-for="item in swperArr" :key="item.id">
       <div class="swperlist">
       <div>
@@ -96,7 +97,7 @@ export default {
 #cont {
   width: 100%;
   height: 560px;
-  background: yellow;
+  /* background: yellow; */
 }
 #my-video{
   height:560px;
@@ -105,12 +106,21 @@ export default {
   width: 1349px;
   height: 560px;
   margin: 0 auto;
+  position: relative;
   /* background: red; */
+}
+.videoimg{
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top:120px;
+  left: 420px;
+
 }
 .da_earth{
   width: 1169px;
   height: 400px;
-  background: pink;
+  /* background: pink; */
   display: flex;
   justify-content: space-between;
   margin: 0px auto;
@@ -145,7 +155,7 @@ export default {
   align-items: center;
 }
 .pechion div>img{
-  width: 275px;
+  width: 201px;
   height: 172px;
 }
 .pechion>.pectitle{
@@ -153,18 +163,20 @@ export default {
   height: 100px;
   font-size: 36px;
   font-weight: 900;
-   background: palegreen;
+   background:white;
 }
 .swper{
   width: 100%;
   height: 425px;
   background: #E5E5E5;
+  padding-top: 80px;
 }
 .swper>div{
   height: 350px;
    width:1169px;
-   background: pink;
+   /* background: pink; */
    margin: 0px auto;
+  
 }
 .swperlist{
    height: 350px;
@@ -182,7 +194,7 @@ export default {
    padding: 5px 0px;
 }
 .swperlist>div>div>a{
- border: 4px solid #2CCE6C;
+ border: 2px solid #2CCE6C;
 padding: 10px;
 color: #2CCE6C;
 }

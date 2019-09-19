@@ -147,7 +147,7 @@ flex-wrap: wrap;
 }
 
 .alllist{
-  /* background: blue; */
+  background: #F1F3F4;
   width: 290px;
   height: 400px;
   margin-top: 10px;
