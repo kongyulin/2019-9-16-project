@@ -71,7 +71,7 @@ export default {
     this.$ajax
       .get("http://localhost:8081/home")
       .then(function(response) {
-        window.console.log(response);
+        // window.console.log(response);
         var homeArr = response.data;
         for (let index = 0; index < homeArr.length; index++) {
           if (homeArr[index].classify == "video") {

@@ -113,7 +113,7 @@ export default {
     this.$ajax
       .post("http://localhost:8081/shop/shoplist")
       .then(function(response) {
-        window.console.log(response);
+        // window.console.log(response);
         that.shoplist = response.data;
         var ShopArr = response.data;
         for (let index = 0; index < ShopArr.length; index++) {
