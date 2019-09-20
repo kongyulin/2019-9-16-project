@@ -72,7 +72,7 @@ export default {
             searchword: that.$store.getters.getsearch
           }})
       .then(function(response) {
-        window.console.log(response.data);
+        // window.console.log(response.data);
         that.searchdata = response.data;
 
       })

@@ -1,5 +1,6 @@
 <template>
   <div id="user">
+    <Navbar></Navbar>
     <!-- 登录后 -->
     <div v-if="this.userinfo.name" class="user">
       <UserInfor></UserInfor>
@@ -47,6 +48,7 @@
 
 <script>
 import UserInfor from '../components/userInfor.vue'
+import Navbar from '../components/navbar.vue'
 export default {
   name: "user",
   data() {
@@ -74,7 +76,8 @@ export default {
     };
   },
   components: {
-      UserInfor
+      UserInfor,
+      Navbar
   },
   methods: {
     //登录
@@ -85,7 +88,7 @@ export default {
           this.$ajax
             .post("http://localhost:8081/user/login", this.ruleForm)
             .then(function(response) {
-              window.console.log(response.data.userinfo);
+              // window.console.log(response.data.userinfo);
               that.userinfo = response.data.userinfo;
               if (response.data.msg == "same") {
                 alert("登录成功");

@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted: function() {
-    window.console.log(this.$store.getters.getuname);
+    // window.console.log(this.$store.getters.getuname);
   }
 };
 </script>
@@ -54,6 +54,8 @@ export default {
 .users {
   height: 200px;
   background-color: aqua;
+  background-image: url('http://pic.58pic.com/58pic/15/91/56/258PICG58PICQ3T_1024.jpg');
+  background-size:100% 100%;
 }
 .touxiang {
   width: 100px;

@@ -42,7 +42,7 @@
       <div>
         <div class="smallimg"><img :src="item.img1" alt=""></div>
         <div><h2>{{item.text}}</h2></div>
-        <div><a>查看详情</a></div>
+        <div><a href='http://localhost:8080/roots.html' target='_blank'>查看详情</a></div>
       </div>
      <div><img :src="item.img2" alt=""></div>
      </div>
@@ -71,7 +71,7 @@ export default {
     this.$ajax
       .get("http://localhost:8081/home")
       .then(function(response) {
-        window.console.log(response);
+        // window.console.log(response);
         var homeArr = response.data;
         for (let index = 0; index < homeArr.length; index++) {
           if (homeArr[index].classify == "video") {

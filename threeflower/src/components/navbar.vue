@@ -1,5 +1,4 @@
 <template>
- 
     <div id="top">
       <div id="navbar">
         <div>
@@ -34,7 +33,6 @@
 </template>
 
 <script>
-// import Home from './views/home.vue'
 export default {
   name: "app",
 
