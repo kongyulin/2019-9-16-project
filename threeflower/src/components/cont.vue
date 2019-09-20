@@ -65,7 +65,7 @@ export default {
       swperArr:[]
     };
   },
-  methods: {},
+ 
   mounted: function() {
     var that = this;
     this.$ajax

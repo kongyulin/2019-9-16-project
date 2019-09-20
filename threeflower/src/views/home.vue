@@ -1,16 +1,16 @@
 <template>
   <div id="home">
-    <!-- <Navbar></Navbar> -->
+    <Navbar></Navbar>
     <Cont></Cont>
   </div>
 </template>
 <script>
-// import Navbar from '../components/navbar.vue'
+import Navbar from '../components/navbar.vue'
 import Cont from '../components/cont.vue'
 export default {
   name: "home",
   components: {
-    // Navbar,
+    Navbar,
     Cont
   },
   data() {
@@ -22,7 +22,7 @@ export default {
         
     },
   mounted: function() {
-    window.console.log( this.$store.getters.getuname)
+    window.console.log(this.$store.getters.getuname)
   }
 };
 </script>

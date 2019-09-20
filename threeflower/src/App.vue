@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <div id="top">
+    <!-- <div id="top">
       <div id="navbar">
         <div>
           <router-link to="/">首页</router-link>
           <router-link to="/shoplist">商品列表</router-link>
         </div>
         <div class="inputbox">
-          <el-input placeholder="请输入内容" v-model="input4">
-            <i slot="prefix" class="el-input__icon el-icon-search"></i>
-          </el-input>
+         <el-input placeholder="请输入内容" v-model="inputword" class="input-with-select">
+          <el-button slot="append" icon="el-icon-search" @click="Search()"></el-button>
+        </el-input>
         </div>
-        <div>
+        <div style="height:50px;line-height:50px;">
           <span v-if="this.$store.getters.getuname.name" style="color:white">
             <span class="touxiang">
               <img
@@ -30,7 +30,7 @@
           <router-link to="/user">个人中心</router-link>
         </div>
       </div>
-    </div>
+    </div> -->
     <router-view></router-view>
   </div>
 </template>
@@ -48,7 +48,12 @@ export default {
     };
   },
   methods: {
-    Search(inputword) {}
+    Search() {
+     console.log(this.inputword)
+     let that=this
+     this.$store.dispatch('setSearch',this.inputword);
+     this.$router.push("/search"); 
+    },
   }
 };
 </script>
@@ -87,25 +92,29 @@ body {
   border-radius: 30px;
   overflow: hidden;
 }
-.inputbox /deep/ .el-input__inner {
-  height: 30px;
-  /* background: none; */
-  /* border-radius: 30px; */
+.inputbox /deep/.input-with-select{
+    height: 30px;
 }
-.inputbox /deep/ .el-input__icon {
-  margin-top: -5px;
+.inputbox /deep/ .el-input__inner {
+  height: 30px; 
+}
+
+.inputbox /deep/ .el-input-group__append{
+  padding:0px 10px;
 }
 
 /* 头像 */
 .touxiang {
   width: 25px;
   height: 25px;
-  background-color: red;
+  /* background-color: red; */
+  
   display: inline-block;
 }
 .touxiang > img {
   width: 25px;
   height: 25px;
   border-radius: 50%;
+
 }
 </style>

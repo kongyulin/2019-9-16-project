@@ -1,8 +1,10 @@
 <template>
-  <div id="shoplist">
-  <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+  <div id="shop">
+     <Navbar></Navbar>
+    <div id="shoplist">
+  <el-tabs v-model="activeName" type="card">
     <el-tab-pane label="全部" name="first" class="list">
-      <div v-for="item in shoplist" :key="item.id">
+      <div v-for="item in shoplist" :key="item.id" @click="toDetail(item)">
         <div class="alllist">
           <img :src="item.img" alt="">
            <div style="color:red">￥{{item.price}}</div>
@@ -73,11 +75,17 @@
     </el-tab-pane>
   </el-tabs>
   </div>
+  </div>
 </template>
 
 <script>
+import Navbar from '../components/navbar.vue'
 export default {
-  name: "app",
+  name: "shoplist",
+       components: {
+       Navbar,
+
+       },
     data() {
       return {
         activeName: 'first',
@@ -91,12 +99,15 @@ export default {
         shop7:[],
       };
     },
+ 
         methods: {
-      handleClick() {
-       
+
+      toDetail(data){
+            // window.console.log(data)
+            this.$store.dispatch('setDetail',data);
+           this.$router.push("/shopdetail");
       }
     }, 
-  components: {},
   mounted: function() {
     let that = this;
     this.$ajax
