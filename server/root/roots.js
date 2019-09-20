@@ -102,8 +102,110 @@ for (let i = 0; i < imgData.length; i++) {
 var ulist2 = document.createElement('ul');
 img.appendChild(ulist2);
 ulist2.classList.add('btn');
-for (let i = 0; i < 3; i--) {
+for (let i = 0; i < 3; i++) {
     var li2 = document.createElement('li');
     ulist2.appendChild(li2);
 }
+function aroungImg(imglist) {
+    //找到所有的事件源
+    this.btn = document.querySelectorAll(imglist + ' .btn li');
+    // 找到要操作的图片
+    this.imglist = document.querySelectorAll(imglist + ' .imgdiv li');
+    //自动轮播时间间隔
+    this.autotime = 2000;
+    //定时器的id
+    this.sid;
+    //是否开启自动轮播
+    this.auto = false;
 
+    this.n = 0;
+
+    //基本功能
+    this.start();
+}
+//点击切换效果
+aroungImg.prototype.start = function () {
+    let _this = this;
+    for (let ind = 0; ind < _this.btn.length; ind++) {
+        _this.btn[ind].onmouseover = function (event) {
+            // console.log(event);
+            event && event.isTrusted && _this.sid && clearInterval(_this.sid);
+            // 把所有的图片隐藏
+            for (const img of _this.imglist) {
+                img.style.display = 'none';
+            }
+            // 当前图片显示出来
+            _this.imglist[ind].style.display = 'block';
+            _this.n = ind + 1;
+        }
+        //重新开启自动轮播
+        _this.btn[ind].onmouseout = function (event) {
+            _this.auto && _this.autoplay();
+        }
+    }
+    return _this;
+}
+//修改时间
+aroungImg.prototype.autotime1 = function (time) {
+    this.autotime = time;
+    return this;
+}
+//自动轮播
+aroungImg.prototype.autoplay = function () {
+    let _this = this;
+    _this.auto = true;
+
+    _this.sid = setInterval(function () {
+        _this.btn[_this.n++ % _this.btn.length].onmouseover();
+    }, _this.autotime);
+    return _this;
+}
+window.onload = function () {
+    let a = new aroungImg('.img').autotime1(5000).autoplay();
+    console.log(a);
+    new aroungImg('.img1');
+}
+
+function log() {
+    console.log(...arguments);
+}
+
+log(1, 2, 3);
+console.log(1, 2, 3);
+
+var o = {
+    fn: function () {
+        console.log(this.fn)
+    }
+}
+
+// 明星代言
+var fullink = document.querySelector('.full-link');
+var div1 = document.createElement('div');
+fullink.appendChild(div1);
+div1.classList.add('div1');
+//   文字部分
+var div11 = document.querySelector('.div1');
+var h2 = document.createElement('h1');
+h2.innerHTML = '明星代言'
+div11.appendChild(h2);
+
+//   视频
+var div2 = document.createElement('div');
+div11.appendChild(div2);
+div2.classList.add('video3');
+
+var video13=document.createElement('video')
+div2.appendChild(video13);
+video13.setAttribute('src',' https://qiniu-xpc0.xpccdn.com/5b725b43306c9.mp4')
+video13.setAttribute('controls','controls')
+video13.setAttribute('controlspreload','none')
+video13.style.width='500px'
+video13.style.height='280px'
+
+var h21 = document.createElement('h1');
+h21.innerHTML = '周杰伦'
+div11.appendChild(h21);
+var h22 = document.createElement('p');
+h22.innerHTML = '中国台湾流行乐男歌手、音乐人、演员、导演、编剧、监制。'
+div11.appendChild(h22);
