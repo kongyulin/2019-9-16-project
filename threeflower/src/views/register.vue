@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Navbar></Navbar>
     <div id="forms">
       <el-form
       :model="ruleForm"
@@ -27,7 +28,10 @@
 </template>
 
 <script>
+import Navbar from '../components/navbar.vue'
 export default {
+  name: "app",
+  components: {Navbar},
   data() {
     var validatePass = (rule, value, callback) => {
       if (value === "") {

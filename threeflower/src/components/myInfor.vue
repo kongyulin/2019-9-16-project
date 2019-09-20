@@ -1,17 +1,21 @@
 <template>
   <div id="myInfor">
     <!-- 昵称修改 -->
-    <div>昵称</div>
+    <MyNickname></MyNickname>
 
     <!-- 用户头像修改 -->
-    <div>头像</div>
+    <MyImage></MyImage>
   </div>
 </template>
-<script>
 
+<script>
+import MyNickname from './myNickname.vue'
+import MyImage from './myImage.vue'
 export default {
   name: "home",
   components: {
+    MyNickname,
+    MyImage
   },
   data() {
     return {
@@ -21,9 +25,6 @@ export default {
    methods: {
         
     },
-  mounted: function() {
-    // window.console.log( this.$store.getters.getuname)
-  }
 };
 </script>
 

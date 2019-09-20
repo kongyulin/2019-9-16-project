@@ -49,8 +49,7 @@ export default {
   },
   methods: {
     Search() {
-     console.log(this.inputword)
-     let that=this
+    //  console.log(this.inputword)
      this.$store.dispatch('setSearch',this.inputword);
      this.$router.push("/search"); 
     },

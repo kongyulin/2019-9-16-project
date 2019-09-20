@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Navbar></Navbar>
     <div id="forms">
       <el-form
         :model="ruleForm"
@@ -25,7 +26,10 @@
 </template>
 
 <script>
+import Navbar from '../components/navbar.vue'
 export default {
+  name: "app",
+  components: {Navbar},
   data() {
     return {
       userinfo:{},
@@ -56,7 +60,7 @@ export default {
           this.$ajax
             .post("http://localhost:8081/user/login", this.ruleForm)
             .then(function(response) {
-              window.console.log(response.data.userinfo);
+              // window.console.log(response.data.userinfo);
               that.userinfo=response.data.userinfo;
               if (response.data.msg == "same") {
                 alert("登录成功");

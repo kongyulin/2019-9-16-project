@@ -58,7 +58,8 @@ app.use('/user', require('./controller/login'))
 // 搜索页面数据  子路由
 app.use('/shop',require('./controller/shopdetial'))
 
-
+// 静态托管
+app.use(express.static(__dirname+"/root"))
 
 app.listen(8081,()=>{
     console.log('Server started on 8081')
