@@ -105,22 +105,19 @@
     height: 600px;
 }
 .btn {
-    width: 120px;
     position: absolute;
     bottom: 20px;
-    left: 345px;
-    margin: 0 auto;
+    left: 45%;
 }
 
 .btn li {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     float: left;
-    border: 1px solid #f01;
     border-radius: 50%;
     list-style: none;
     background-color: #fff;
-    margin-left: 5px;
+    margin-left: 10px;
     cursor: pointer;
 }
 

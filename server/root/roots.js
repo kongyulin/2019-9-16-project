@@ -179,6 +179,7 @@ var o = {
     }
 }
 
+
 // 明星代言
 var fullink = document.querySelector('.full-link');
 var div1 = document.createElement('div');
