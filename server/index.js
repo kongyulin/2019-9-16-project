@@ -51,6 +51,8 @@ app.get('/home', (req, res) => {
     })
 })
 
+//购物车
+app.use('/shopcar',require('./controller/shopcar'))
 
 // 登录/注册  子路由
 app.use('/user', require('./controller/login'))
