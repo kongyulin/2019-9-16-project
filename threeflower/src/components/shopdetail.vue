@@ -250,11 +250,17 @@ export default {
        }
     },
     toshopcar(){
+       if(this.userinfo.name){
+  //  let that = this;
       this.$ajax
       .get("http://localhost:8081/shopcar/addcar",{params:{inform:this.getdetail,count:this.count,username:this.userinfo.name}})
       .then(function(response) {
         console.log(response)
      })
+       }else{
+          alert("请先登录");
+         this.$router.push("/login")
+       }
     }
     },
   mounted: function() {
