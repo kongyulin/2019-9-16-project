@@ -16,7 +16,9 @@
         <el-collapse-item title="我的信息" name="1">
           <MyInfor></MyInfor>
         </el-collapse-item>
-        <el-collapse-item title="我的购物车" name="2"></el-collapse-item>
+        <el-collapse-item title="我的购物车" name="2">
+          <MyShop></MyShop>
+        </el-collapse-item>
         <el-collapse-item title="我的订单" name="3"></el-collapse-item>
       </el-collapse>
     </div>
@@ -24,7 +26,8 @@
 </template>
 
 <script>
-import MyInfor from '../components/myInfor.vue'
+import MyInfor from './myInfor.vue'
+import MyShop from './myShop.vue'
 export default {
   name: "app",
   data() {
@@ -37,7 +40,8 @@ export default {
     };
   },
   components: {
-    MyInfor
+    MyInfor,
+    MyShop
   },
   methods: {
     handleChange(val) {
@@ -53,7 +57,7 @@ export default {
 <style scoped>
 .users {
   height: 200px;
-  background-color: aqua;
+  /* background-color: aqua; */
   background-image: url('http://pic.58pic.com/58pic/15/91/56/258PICG58PICQ3T_1024.jpg');
   background-size:100% 100%;
 }

@@ -11,7 +11,6 @@
     flex-flow: wrap;
     justify-content: center;
 }
-
 .ulist>li{
     margin-left: 50px;
     list-style: none;
@@ -20,7 +19,6 @@
     height: 64px;
     color: #B6D0B8;
 }
-
 .ulist>li:hover{
     color: white;
     cursor: pointer;
@@ -109,7 +107,6 @@
     bottom: 20px;
     left: 45%;
 }
-
 .btn li {
     width: 10px;
     height: 10px;
@@ -120,7 +117,6 @@
     margin-left: 10px;
     cursor: pointer;
 }
-
 
 /* 明星代言 */
 .full-link{
@@ -141,3 +137,4 @@
 .video3,.div1>p{
     margin-top: 20px;
 }
+
