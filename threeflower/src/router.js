@@ -7,6 +7,7 @@ import User from './views/user.vue'
 import Shoplist from './views/shoplist.vue'
 import Search from './views/search.vue'
 import Shopdetail from './components/shopdetail.vue'
+import Pay from './views/pay.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -41,7 +42,10 @@ export default new Router({
     {
       path: '/shopdetail',
       component: Shopdetail
+    },
+    {
+      path: '/pay',
+      component: Pay
     }
-
   ]
 })

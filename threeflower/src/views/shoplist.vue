@@ -145,6 +145,7 @@ export default {
   min-height: 500px;
   margin: 0px auto;
   margin-top: 10px;
+  cursor: pointer;
 }
 .list {
   width: 1200px;

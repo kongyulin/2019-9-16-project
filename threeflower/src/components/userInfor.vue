@@ -19,7 +19,9 @@
         <el-collapse-item title="我的购物车" name="2">
           <MyShop></MyShop>
         </el-collapse-item>
-        <el-collapse-item title="我的订单" name="3"></el-collapse-item>
+        <el-collapse-item title="我的订单" name="3">
+          <MyOrder></MyOrder>
+        </el-collapse-item>
       </el-collapse>
     </div>
   </div>
@@ -28,6 +30,7 @@
 <script>
 import MyInfor from './myInfor.vue'
 import MyShop from './myShop.vue'
+import MyOrder from './myOrder.vue'
 export default {
   name: "app",
   data() {
@@ -41,11 +44,12 @@ export default {
   },
   components: {
     MyInfor,
-    MyShop
+    MyShop,
+    MyOrder
   },
   methods: {
     handleChange(val) {
-      window.console.log(val);
+      // window.console.log(val);
     }
   },
   mounted: function() {
@@ -58,7 +62,7 @@ export default {
 .users {
   height: 200px;
   /* background-color: aqua; */
-  background-image: url('http://pic.58pic.com/58pic/15/91/56/258PICG58PICQ3T_1024.jpg');
+  background-image: url('http://img2.imgtn.bdimg.com/it/u=3635631015,3134581665&fm=26&gp=0.jpg');
   background-size:100% 100%;
 }
 .touxiang {

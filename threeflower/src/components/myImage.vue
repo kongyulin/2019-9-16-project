@@ -82,5 +82,6 @@ export default {
   color: #8f8f8f;
   font-size: 26px;
   height: 37px;
+  cursor: pointer;
 }
 </style>

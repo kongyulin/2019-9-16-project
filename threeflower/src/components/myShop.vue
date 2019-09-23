@@ -1,23 +1,54 @@
 <template>
   <div id="myShop">
-    <div>
+    <!-- 购物车不为空时 -->
+    <div v-if="this.$store.getters.getcar.length">
+      <div style="width: 100%">
         <el-table
           ref="multipleTable"
-          :data="tableData"
+          :data="this.$store.getters.getcar"
           tooltip-effect="dark"
           style="width: 100%"
           @selection-change="handleSelectionChange"
         >
           <el-table-column type="selection" width="55"></el-table-column>
-          <el-table-column label="日期" width="120">
-            <template slot-scope="scope">{{ scope.row.date }}</template>
+          <el-table-column prop="img" label=" " width="200">
+            <template slot-scope="scope">
+              <img :src="scope.row.img" width="80" height="80" />
+            </template>
           </el-table-column>
-          <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-          <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
+          <el-table-column prop="title" label="商品名" width="300"></el-table-column>
+          <el-table-column prop="price" label="价格" width="150"></el-table-column>
+          <el-table-column prop="count" label="数量" width="150">
+            <template slot-scope="scope">
+              <div class="contt">
+                <span class="conts" @click="handleReduce(scope.$index)">-</span>
+                {{scope.row.count}}
+                <span
+                  class="conts"
+                  @click="handleAdd(scope.$index)"
+                >+</span>
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop=" " label=" " width="150">
+            <el-button @click="handleRemove($index)">删除</el-button>
+          </el-table-column>
         </el-table>
         <div style="margin-top: 20px">
+          <div class="total">
+            总价：¥
+            <span>{{totalPrice}}</span>元
+          </div>
           <el-button @click="toggleSelection()">取消选择</el-button>
+          <el-button @click="togetCar()">去结算</el-button>
         </div>
+      </div>
+    </div>
+
+    <!-- 购物车为空时 -->
+    <div v-else>
+      <div class="emptys1">您的购物车还是空的！</div>
+      <div @click="toshouye" class="emptys2">马上去购物</div>
     </div>
   </div>
 </template>
@@ -25,46 +56,20 @@
 export default {
   name: "myShop",
   components: {},
+  computed: {
+    //计算并获取总价
+    totalPrice() {
+      let total = 0;
+      for (let i = 0; i < this.$store.getters.getorder.length; i++) {
+        let item = this.$store.getters.getorder[i];
+        total += item.price * item.count;
+      }
+      return total;
+    }
+  },
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-08",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-06",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-07",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        }
-      ],
-      multipleSelection: []
+
     };
   },
   methods: {
@@ -78,15 +83,81 @@ export default {
       }
     },
     handleSelectionChange(val) {
-      this.multipleSelection = val;
-      window.console.log(val);
+      // window.console.log(val);
+      this.$store.dispatch("setOrder", val);
+    },
+
+    // 提交订单
+    togetCar() {
+      this.$store.dispatch("setMyorder", this.$store.getters.getorder);
+      this.$router.push('/pay')
+    },
+
+    //减少商品数量
+    handleReduce(index) {
+      if (this.$store.getters.getcar[index].count === 1) return;
+      this.$store.getters.getcar[index].count--;
+    },
+    //增加商品数量
+    handleAdd(index) {
+      this.$store.getters.getcar[index].count++;
+    },
+    //从购物车中移除该商品
+    handleRemove(index) {
+      this.$store.getters.getcar.splice(index, 1);
+    },
+
+    // 购物车为空的时
+    toshouye() {
+      this.$router.push("/");
     }
   },
   mounted: function() {
-    // window.console.log(this.$store.getters.getuname)
+    this.$ajax
+      .get("http://localhost:8081/shopcar/searchCar", {
+        params: { username: this.$store.getters.getuname.name }
+      })
+      .then(response => {
+        this.$store.dispatch("setShopcar", response.data);
+      });
   }
 };
 </script>
 
 <style scoped>
+/* 购物车不为空时 */
+.conts {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 20px;
+}
+.conts:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}
+.total > span {
+  color: orangered;
+  font-size: 20px;
+}
+
+/* 购物车为空时 */
+.emptys {
+  width: 100%;
+  height: 400px;
+}
+.emptys1 {
+  font-size: 40px;
+  height: 100px;
+  color: brown;
+}
+.emptys2 {
+  font-size: 20px;
+}
+.emptys2:hover {
+  color: orange;
+  cursor: pointer;
+}
 </style>

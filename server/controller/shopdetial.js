@@ -10,7 +10,7 @@ router.post('/shoplist',(req,res)=>{
     })
 })
 router.get('/searchlist',(req,res)=>{
-    console.log(req.query)
+    // console.log(req.query)
     let sql = `SELECT * FROM shoplist where title like '%${req.query.searchword}%'`
     mydb.query(sql, (err, result) => {
         if (!err) {

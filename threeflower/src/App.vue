@@ -1,36 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="top">
-      <div id="navbar">
-        <div>
-          <router-link to="/">首页</router-link>
-          <router-link to="/shoplist">商品列表</router-link>
-        </div>
-        <div class="inputbox">
-         <el-input placeholder="请输入内容" v-model="inputword" class="input-with-select">
-          <el-button slot="append" icon="el-icon-search" @click="Search()"></el-button>
-        </el-input>
-        </div>
-        <div style="height:50px;line-height:50px;">
-          <span v-if="this.$store.getters.getuname.name" style="color:white">
-            <span class="touxiang">
-              <img
-                v-if="this.$store.getters.getuname.img"
-                :src="this.$store.getters.getuname.img"
-                alt
-              />
-              <img v-else :src="circleUrl" alt />
-            </span>
-            <span style="margin-left:10px">{{this.$store.getters.getuname.name}}</span>
-          </span>
-          <span v-else>
-            <router-link to="/login">登录</router-link>
-            <router-link to="/register">注册</router-link>
-          </span>
-          <router-link to="/user">个人中心</router-link>
-        </div>
-      </div>
-    </div> -->
     <router-view></router-view>
   </div>
 </template>

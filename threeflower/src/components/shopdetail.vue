@@ -238,11 +238,15 @@ export default {
      buynow(){
       //  window.console.log(this.$store.getters.getuname)
        if(this.userinfo.name){
-  //  let that = this;
     this.$ajax
       .get("http://localhost:8081/shopcar/buynow",{params:{inform:this.getdetail,count:this.count,username:this.userinfo.name}})
-      .then(function(response) {
-        console.log(response)
+      .then((response)=>{
+        // console.log(response.data)
+        if(response.data.code==1){
+          alert(response.data.msg)
+        }else if(response.data.shopData.affectedRows==1){
+          alert(response.data.msg)
+        }
      })
        }else{
           alert("请先登录");
@@ -254,8 +258,13 @@ export default {
   //  let that = this;
       this.$ajax
       .get("http://localhost:8081/shopcar/addcar",{params:{inform:this.getdetail,count:this.count,username:this.userinfo.name}})
-      .then(function(response) {
-        console.log(response)
+      .then((response)=>{
+        // console.log(response.data)
+        if(response.data.code==1){
+          alert(response.data.msg)
+        }else if(response.data.shopData.affectedRows==1){
+          alert(response.data.msg)
+        }
      })
        }else{
           alert("请先登录");
@@ -264,7 +273,7 @@ export default {
     }
     },
   mounted: function() {
-    window.console.log(this.$store.getters.getdetail)
+    // window.console.log(this.$store.getters.getdetail)
     this.userinfo = this.$store.getters.getuname;
      this.getdetail=this.$store.getters.getdetail
   }
@@ -287,6 +296,7 @@ export default {
     width:500px;
     height:600px;
     position: relative;
+    cursor: pointer;
 }
 
 .detailleft>div:nth-child(1){
@@ -434,6 +444,7 @@ margin-top: 10px;
    margin-left: 10px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .shopcar>div{
   height: 50px;

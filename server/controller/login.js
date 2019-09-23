@@ -12,7 +12,7 @@ router.post('/login', (req, res) => {
                 msg: "none"
             })
         } else if (results.length == 1) {
-            console.log(results)
+            // console.log(results)
             if (results[0].pass == req.body.pass) {
                 res.json({
                     msg: "same",
