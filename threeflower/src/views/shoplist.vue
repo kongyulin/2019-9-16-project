@@ -101,34 +101,31 @@ export default {
 
   methods: {
     toDetail(data) {
-      // window.console.log(data)
       this.$store.dispatch("setDetail", data);
       this.$router.push("/shopdetail");
     }
   },
   mounted: function() {
-    let that = this;
     this.$ajax
       .post("http://localhost:8081/shop/shoplist")
-      .then(function(response) {
-        // window.console.log(response);
-        that.shoplist = response.data;
+      .then((response)=>{
+        this.shoplist = response.data;
         var ShopArr = response.data;
         for (let index = 0; index < ShopArr.length; index++) {
           if (ShopArr[index].classify == "百雀羚草木") {
-            that.shop1.push(ShopArr[index]);
+            this.shop1.push(ShopArr[index]);
           } else if (ShopArr[index].classify == "三生花") {
-            that.shop2.push(ShopArr[index]);
+            this.shop2.push(ShopArr[index]);
           } else if (ShopArr[index].classify == "气韵") {
-            that.shop3.push(ShopArr[index]);
+            this.shop3.push(ShopArr[index]);
           } else if (ShopArr[index].classify == "海之秘") {
-            that.shop4.push(ShopArr[index]);
+            this.shop4.push(ShopArr[index]);
           } else if (ShopArr[index].classify == "小雀幸") {
-            that.shop5.push(ShopArr[index]);
+            this.shop5.push(ShopArr[index]);
           } else if (ShopArr[index].classify == "小幸韵") {
-            that.shop6.push(ShopArr[index]);
+            this.shop6.push(ShopArr[index]);
           } else if (ShopArr[index].classify == "百雀羚男士") {
-            that.shop7.push(ShopArr[index]);
+            this.shop7.push(ShopArr[index]);
           }
         }
       })

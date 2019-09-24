@@ -39,7 +39,6 @@ export default {
         let res = data.target || data.srcElement;
         this.circleUrl = res.result;
         this.$store.getters.getuname.img=res.result
-        // console.log( res.result)
       };
       reader.readAsDataURL(file);
     }

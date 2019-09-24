@@ -31,8 +31,8 @@
         </div>
       </div>
   </div>
- <div id="search">
-    <div v-for="item in searchdata" :key="item.id">
+ <div id="search"  >
+    <div v-for="item in searchdata" :key="item.id" @click="toDetail(item)">
           <div class="alllist">
           <img :src="item.img" alt="">
            <div style="color:red">￥{{item.price}}</div>
@@ -60,21 +60,22 @@ export default {
        this.loaddata()
     } ,
  methods: {
+   toDetail(data) {
+      this.$store.dispatch("setDetail", data);
+      this.$router.push("/shopdetail");
+    },
     Search() {
      this.$store.dispatch('setSearch',this.inputword);
      this.loaddata()
     },
     loaddata(){
-    //  console.log(this.$store.getters.getsearch)
     let that = this;
     this.$ajax
       .get("http://localhost:8081/shop/searchlist",{params:{
             searchword: that.$store.getters.getsearch
           }})
       .then(function(response) {
-        // window.console.log(response.data);
         that.searchdata = response.data;
-
       })
       .catch(function(error) {
         window.console.log(error);
@@ -85,12 +86,12 @@ export default {
 </script>
 <style scoped>
 #search{
-    /* background: pink; */
     width: 1200px;
     min-height:200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 .alllist{
   background: #F1F3F4;

@@ -60,7 +60,6 @@ export default {
           this.$ajax
             .post("http://localhost:8081/user/login", this.ruleForm)
             .then(function(response) {
-              // window.console.log(response.data.userinfo);
               that.userinfo=response.data.userinfo;
               if (response.data.msg == "same") {
                 alert("登录成功");

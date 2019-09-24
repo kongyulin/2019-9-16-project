@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// import Home from './views/home.vue'
 export default {
   name: "app",
   components: {},
@@ -18,7 +17,6 @@ export default {
   },
   methods: {
     Search() {
-    //  console.log(this.inputword)
      this.$store.dispatch('setSearch',this.inputword);
      this.$router.push("/search"); 
     },
@@ -37,7 +35,6 @@ body {
   background: #0b0808;
 }
 #navbar {
-  /* background: pink; */
   height: 50px;
   width: 1200px;
   display: flex;
@@ -75,14 +72,11 @@ body {
 .touxiang {
   width: 25px;
   height: 25px;
-  /* background-color: red; */
-  
   display: inline-block;
 }
 .touxiang > img {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-
 }
 </style>

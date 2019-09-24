@@ -59,7 +59,6 @@ export default {
     toMyorder() {
       if (!this.flage) {
         this.flage = true;
-        console.log(this.$store.getters.getmyorder);
       } else {
         this.flage = false;
       }
@@ -73,7 +72,5 @@ export default {
 
 <style scoped>
 
-/* div:{
-    text-align: center;
-} */
+
 </style>

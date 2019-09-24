@@ -31,7 +31,10 @@
             </template>
           </el-table-column>
           <el-table-column prop=" " label=" " width="150">
-            <el-button @click="handleRemove($index)">删除</el-button>
+            <!-- <el-button @click="handleRemove($index)">删除</el-button> -->
+            <template slot-scope="scope">
+              <el-button @click="handleRemove(scope.row.id)">删除</el-button>
+            </template>
           </el-table-column>
         </el-table>
         <div style="margin-top: 20px">
@@ -83,7 +86,6 @@ export default {
       }
     },
     handleSelectionChange(val) {
-      // window.console.log(val);
       this.$store.dispatch("setOrder", val);
     },
 
@@ -104,7 +106,22 @@ export default {
     },
     //从购物车中移除该商品
     handleRemove(index) {
-      this.$store.getters.getcar.splice(index, 1);
+      // this.$store.getters.getcar.splice(index, 1);
+      console.log(index)
+      this.$ajax.get('http://localhost:8081/shopcar/deleteShopcar',{params: { id:index }})
+      .then((response)=>{
+        console.log(response.data.affectedRows)
+        if(response.data.affectedRows==1){
+          alert('删除成功')
+          this.$ajax
+      .get("http://localhost:8081/shopcar/searchCar", {
+        params: { username: this.$store.getters.getuname.name }
+      })
+      .then(response => {
+        this.$store.dispatch("setShopcar", response.data);
+      });
+        }
+      })
     },
 
     // 购物车为空的时

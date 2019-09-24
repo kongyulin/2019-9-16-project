@@ -53,7 +53,6 @@ export default {
     }
   },
   mounted: function() {
-    // window.console.log(this.$store.getters.getuname);
   }
 };
 </script>
@@ -61,14 +60,12 @@ export default {
 <style scoped>
 .users {
   height: 200px;
-  /* background-color: aqua; */
   background-image: url('http://img2.imgtn.bdimg.com/it/u=3635631015,3134581665&fm=26&gp=0.jpg');
   background-size:100% 100%;
 }
 .touxiang {
   width: 100px;
   height: 100px;
-  /* background-color: red; */
 }
 .touxiang > img {
   width: 100px;
@@ -80,7 +77,6 @@ export default {
 .username {
   margin-top: 20px;
   margin-left: 20px;
-  /* background-color: yellowgreen; */
   width: 100px;
   text-align: center;
 }

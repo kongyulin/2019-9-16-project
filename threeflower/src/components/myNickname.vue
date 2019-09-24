@@ -30,11 +30,9 @@ export default {
   },
    methods: {
        onSubmit() {
-        //  window.console.log(this.formInline)
             this.$ajax
             .post("http://localhost:8081/user/nickname", this.formInline)
             .then((response)=>{
-            //   window.console.log(response.data[0].name)
               if (response.data[0].name == this.$store.getters.getuname.name) {
                 alert("修改成功");
                 this.$store.dispatch('setAccount',response.data[0]);

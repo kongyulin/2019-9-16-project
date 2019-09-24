@@ -8,7 +8,7 @@
           <!-- 微信支付 -->
         <div class="image">
           <div style="width:100%;text-align: center;margin-top:20px">微信支付</div>
-          <img src="https://login.weixin.qq.com/qrcode/IYdtx1Gv8g==" alt="">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569301834183&di=0652220f5a6620da0d25ba31b091a7d2&imgtype=0&src=http%3A%2F%2Fimg3.cache.netease.com%2Fgame%2F2013%2F11%2F26%2F20131126143638f53f4.png" alt="">
         </div>
         <!-- 支付宝支付 -->
         <div class="forms">
@@ -34,7 +34,7 @@ export default {
         
     },
   mounted: function() {
-    // window.console.log(this.$store.getters.getuname)
+  
   }
 };
 </script>
@@ -58,8 +58,8 @@ h2 {
   position: relative;
 }
 .image > img {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   position: absolute;
   top: 50%;
   left: 50%;

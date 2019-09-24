@@ -81,12 +81,10 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // window.console.log(this.ruleForm)
           let that = this;
           this.$ajax
             .post("http://localhost:8081/user/register", this.ruleForm)
             .then(function(response) {
-              window.console.log(response);
               if (response.data.msg == "username_already_exist") {
                 alert("用户名已存在");
               }else if(response.data.msg == "reg_success"){

@@ -45,8 +45,6 @@ export default {
   },
   methods: {
     Search() {
-    //  window.console.log(this.inputword)
-
      this.$store.dispatch('setSearch',this.inputword);
      this.$router.push("/search"); 
     },
@@ -65,7 +63,6 @@ body {
   background: #0b0808;
 }
 #navbar {
-  /* background: pink; */
   height: 50px;
   width: 1200px;
   display: flex;
@@ -103,8 +100,6 @@ body {
 .touxiang {
   width: 25px;
   height: 25px;
-  /* background-color: red; */
-  
   display: inline-block;
 }
 .touxiang > img {
