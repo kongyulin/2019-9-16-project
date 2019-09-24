@@ -71,7 +71,7 @@ export default {
     loaddata(){
     let that = this;
     this.$ajax
-      .get("http://localhost:8081/shop/searchlist",{params:{
+      .get(this.$store.state.address+"/shop/searchlist",{params:{
             searchword: that.$store.getters.getsearch
           }})
       .then(function(response) {

@@ -29,5 +29,10 @@ export default {
 </script>
 
 <style scoped>
-
+#myInfor{
+  width: 80%;
+  margin:0 auto;
+  padding: 10px;
+  /* border: 1px solid aquamarine; */
+}
 </style>

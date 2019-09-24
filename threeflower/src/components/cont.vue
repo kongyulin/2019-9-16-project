@@ -83,7 +83,7 @@ export default {
   mounted: function() {
     var that = this;
     this.$ajax
-      .get("http://localhost:8081/home")
+      .get(this.$store.state.address+"/home")
       .then(function(response) {
         var homeArr = response.data;
         for (let index = 0; index < homeArr.length; index++) {

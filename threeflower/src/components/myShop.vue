@@ -17,8 +17,8 @@
             </template>
           </el-table-column>
           <el-table-column prop="title" label="商品名" width="300"></el-table-column>
-          <el-table-column prop="price" label="价格" width="150"></el-table-column>
-          <el-table-column prop="count" label="数量" width="150">
+          <el-table-column prop="price" label="价格" width="120"></el-table-column>
+          <el-table-column prop="count" label="数量" width="120">
             <template slot-scope="scope">
               <div class="contt">
                 <span class="conts" @click="handleReduce(scope.$index)">-</span>
@@ -31,7 +31,6 @@
             </template>
           </el-table-column>
           <el-table-column prop=" " label=" " width="150">
-            <!-- <el-button @click="handleRemove($index)">删除</el-button> -->
             <template slot-scope="scope">
               <el-button @click="handleRemove(scope.row.id)">删除</el-button>
             </template>
@@ -72,7 +71,7 @@ export default {
   },
   data() {
     return {
-
+    
     };
   },
   methods: {
@@ -90,8 +89,11 @@ export default {
     },
 
     // 提交订单
-    togetCar() {
+    togetCar() {  
       this.$store.dispatch("setMyorder", this.$store.getters.getorder);
+      this.$ajax.get(this.$store.state.address+'/shopcar/myOrder',{
+        params: { myOrder: this.$store.getters.getorder}
+      })
       this.$router.push('/pay')
     },
 
@@ -106,15 +108,12 @@ export default {
     },
     //从购物车中移除该商品
     handleRemove(index) {
-      // this.$store.getters.getcar.splice(index, 1);
-      console.log(index)
-      this.$ajax.get('http://localhost:8081/shopcar/deleteShopcar',{params: { id:index }})
+      this.$ajax.get(this.$store.state.address+'/shopcar/deleteShopcar',{params: { id:index }})
       .then((response)=>{
-        console.log(response.data.affectedRows)
         if(response.data.affectedRows==1){
           alert('删除成功')
           this.$ajax
-      .get("http://localhost:8081/shopcar/searchCar", {
+      .get(this.$store.state.address+"/shopcar/searchCar", {
         params: { username: this.$store.getters.getuname.name }
       })
       .then(response => {
@@ -131,7 +130,7 @@ export default {
   },
   mounted: function() {
     this.$ajax
-      .get("http://localhost:8081/shopcar/searchCar", {
+      .get(this.$store.state.address+"/shopcar/searchCar", {
         params: { username: this.$store.getters.getuname.name }
       })
       .then(response => {
@@ -142,6 +141,11 @@ export default {
 </script>
 
 <style scoped>
+#myShop{
+  width: 90%;
+  margin: 0 auto;
+  border: 1px #EBEEF5 solid;
+}
 /* 购物车不为空时 */
 .conts {
   display: inline-block;

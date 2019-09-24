@@ -31,13 +31,13 @@ export default {
    methods: {
        onSubmit() {
             this.$ajax
-            .post("http://localhost:8081/user/nickname", this.formInline)
+            .post(this.$store.state.address+"/user/nickname", this.formInline)
             .then((response)=>{
               if (response.data[0].name == this.$store.getters.getuname.name) {
                 alert("修改成功");
                 this.$store.dispatch('setAccount',response.data[0]);
                 // 再次请求数据
-                this.$ajax.post("http://localhost:8081/user/login",this.$store.getters.getuname)
+                this.$ajax.post(this.$store.state.address+"/user/login",this.$store.getters.getuname)
                 .then((response)=>{
                     this.$store.dispatch('setAccount',response.data.userinfo);
                 })

@@ -12,8 +12,8 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="百雀羚草木" name="second" class="list">
-          <div v-for="item in shop1" :key="item.id">
+        <el-tab-pane label="百雀羚草木" name="second" class="list" >
+          <div v-for="item in shop1" :key="item.id" @click="toDetail(item)">
             <div class="alllist">
               <img :src="item.img" alt />
               <div style="color:red">￥{{item.price}}</div>
@@ -21,8 +21,8 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="三生花" name="third" class="list">
-          <div v-for="item in shop2" :key="item.id">
+        <el-tab-pane label="三生花" name="third" class="list" >
+          <div v-for="item in shop2" :key="item.id" @click="toDetail(item)">
             <div class="alllist">
               <img :src="item.img" alt />
               <div style="color:red">￥{{item.price}}</div>
@@ -30,8 +30,8 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="气韵" name="fourth" class="list">
-          <div v-for="item in shop3" :key="item.id">
+        <el-tab-pane label="气韵" name="fourth" class="list" >
+          <div v-for="item in shop3" :key="item.id" @click="toDetail(item)">
             <div class="alllist">
               <img :src="item.img" alt />
               <div style="color:red">￥{{item.price}}</div>
@@ -39,15 +39,15 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="海之秘" name="fifth" class="list">
-          <div v-for="item in shop4" :key="item.id" class="alllist">
+        <el-tab-pane label="海之秘" name="fifth" class="list" >
+          <div v-for="item in shop4" :key="item.id" class="alllist" @click="toDetail(item)">
             <img :src="item.img" alt />
             <div style="color:red">￥{{item.price}}</div>
             <div>{{item.title}}</div>
           </div>
         </el-tab-pane>
         <el-tab-pane label="小雀幸" name="sixth" class="list">
-          <div v-for="item in shop5" :key="item.id">
+          <div v-for="item in shop5" :key="item.id" @click="toDetail(item)">
             <div class="alllist">
               <img :src="item.img" alt />
               <div style="color:red">￥{{item.price}}</div>
@@ -55,8 +55,8 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="小幸韵" name="seventh" class="list">
-          <div v-for="item in shop6" :key="item.id">
+        <el-tab-pane label="小幸韵" name="seventh" class="list" >
+          <div v-for="item in shop6" :key="item.id" @click="toDetail(item)">
             <div class="alllist">
               <img :src="item.img" alt />
               <div style="color:red">￥{{item.price}}</div>
@@ -64,8 +64,8 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="百雀羚男士" name="eight" class="list">
-          <div v-for="item in shop7" :key="item.id">
+        <el-tab-pane label="百雀羚男士" name="eight" class="list" >
+          <div v-for="item in shop7" :key="item.id" @click="toDetail(item)">
             <div class="alllist">
               <img :src="item.img" alt />
               <div style="color:red">￥{{item.price}}</div>
@@ -107,7 +107,7 @@ export default {
   },
   mounted: function() {
     this.$ajax
-      .post("http://localhost:8081/shop/shoplist")
+      .post(this.$store.state.address+"/shop/shoplist")
       .then((response)=>{
         this.shoplist = response.data;
         var ShopArr = response.data;

@@ -83,7 +83,7 @@ export default {
         if (valid) {
           let that = this;
           this.$ajax
-            .post("http://localhost:8081/user/register", this.ruleForm)
+            .post(this.$store.state.address+"/user/register", this.ruleForm)
             .then(function(response) {
               if (response.data.msg == "username_already_exist") {
                 alert("用户名已存在");

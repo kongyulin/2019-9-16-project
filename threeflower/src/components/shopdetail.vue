@@ -274,7 +274,7 @@ export default {
     buynow() {
       if (this.userinfo.name) {
         this.$ajax
-          .get("http://localhost:8081/shopcar/buynow", {
+          .get(this.$store.state.address+"/shopcar/buynow", {
             params: {
               inform: this.getdetail,
               count: this.count,
@@ -286,7 +286,7 @@ export default {
               alert(response.data.msg);
             } else if (response.data.shopData.affectedRows == 1) {
               alert(response.data.msg);
-              this.$router.push("/user");
+              this.$router.push("/pay");
             }
           });
       } else {
@@ -297,7 +297,7 @@ export default {
     toshopcar() {
       if (this.userinfo.name) {
         this.$ajax
-          .get("http://localhost:8081/shopcar/addcar", {
+          .get(this.$store.state.address+"/shopcar/addcar", {
             params: {
               inform: this.getdetail,
               count: this.count,

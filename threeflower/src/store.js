@@ -10,7 +10,10 @@ export default new Vuex.Store({
     shopdetail: {},
     shopcar: [],
     order:[],
-    myorder:[]
+    myorder:[],
+    
+    // 网络请求的
+    address:'http://localhost:8081'
   },
   mutations: {
     //用户名密码

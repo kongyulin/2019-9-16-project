@@ -58,7 +58,7 @@ export default {
         if (valid) {
           let that = this;
           this.$ajax
-            .post("http://localhost:8081/user/login", this.ruleForm)
+            .post(this.$store.state.address+"/user/login", this.ruleForm)
             .then(function(response) {
               that.userinfo=response.data.userinfo;
               if (response.data.msg == "same") {

@@ -80,4 +80,11 @@ export default {
   width: 100px;
   text-align: center;
 }
+.infor{
+  margin-top: 20px;
+}
+.infor /deep/ .el-collapse-item__header{
+  font-size: 24px;
+  color: brown;
+}
 </style>
