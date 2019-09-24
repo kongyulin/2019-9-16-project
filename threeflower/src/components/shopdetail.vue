@@ -241,11 +241,11 @@ export default {
       var x = e.clientX;
       var y = e.clientY;
       // 获取当前位置x
-      this.positionxy.top = y - 125 + "px";
+      this.positionxy.top = y - 120 + "px";
       // window.console.log(this.positionxy.top)
-      this.positionxy.left = x - 125 + "px";
-      this.imgxy.top = -(y - 125) * 5 + "px";
-      this.imgxy.left = -(x - 125) * 5 + "px";
+      this.positionxy.left = x - 130 + "px";
+      this.imgxy.top = -(y - 120) * 5 + "px";
+      this.imgxy.left = -(x - 130) * 5 + "px";
       if (x > 525) {
         this.positionxy.left = 400 + "px";
         this.imgxy.left = -2000 + "px";
@@ -345,10 +345,12 @@ export default {
 .detailleft > div:nth-child(1) {
   width: 500px;
   height: 500px;
+  
 }
 .detailleft > div:nth-child(1) > div > img {
   width: 500px;
   height: 500px;
+  border:  1px solid #f1f3f4;
 }
 .detailleft > div:nth-child(2) > div > img {
   width: 90px;
@@ -392,9 +394,9 @@ export default {
 /* 右边 */
 .detailright {
   margin-top: 20px;
-  border: 1px solid #f1f3f4;
+  border-left: 1px solid #f1f3f4;
   width: 630px;
-  height: 580px;
+  height:600px;
   font-size: 16px;
   color: #999fa3;
 }

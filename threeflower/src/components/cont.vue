@@ -54,7 +54,7 @@
                   <h2>{{item.text}}</h2>
                 </div>
                 <div>
-                  <a href="http://localhost:8081/roots.html" target="_blank">查看详情</a>
+                  <a style=" text-decoration: none;" href="http://localhost:8081/roots.html" target="_blank">查看详情</a>
                 </div>
               </div>
               <div>
