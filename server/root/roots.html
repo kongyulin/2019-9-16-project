@@ -1,11 +1,171 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PECHONE</title>
-    <link rel="stylesheet" href="./roots.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 导航 */
+        .ulist {
+            width: 100%;
+            height: 64px;
+            background-color: #518E54;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+        }
+
+        .ulist>li {
+            margin-left: 50px;
+            list-style: none;
+            line-height: 64px;
+            width: 64px;
+            height: 64px;
+            color: #B6D0B8;
+        }
+
+        .ulist>li:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        /* 现代东方美 */
+        .model {
+            background-image: url(http://www.pechoin.com/wp-content/uploads/2018/10/BG_01.jpg);
+            background-size: 100% 500px;
+            width: 100%;
+            height: 500px;
+            display: flex;
+        }
+
+        .paragraph1 {
+            color: white;
+            width: 500px;
+            height: 220px;
+            margin-top: 200px;
+            margin-left: 140px;
+        }
+
+        .paragraph1>p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .video1 {
+            margin-top: 180px;
+        }
+
+        /* 草本生长 */
+        .grow {
+            background-image: url(http://www.pechoin.com/wp-content/uploads/2018/10/BG_02.jpg);
+            background-size: 100% 550px;
+            width: 100%;
+            height: 550px;
+        }
+
+        .paragraph2 {
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+
+        .paragraph2>h1 {
+            padding-top: 40px;
+        }
+
+        .paragraph2>p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .video2 {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* 国礼百雀羚 */
+        .gift {
+            background-image: url(http://www.pechoin.com/wp-content/uploads/2018/10/BG_03.jpg);
+            background-size: 100% 600px;
+            width: 100%;
+            height: 550px;
+            position: relative;
+        }
+
+        .paragraph3 {
+            color: white;
+            width: 500px;
+            position: absolute;
+            top: 40%;
+            right: 0px;
+        }
+
+        .paragraph3>p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        /* 轮播图 */
+        .img,
+        .imgdiv {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .imgdiv>li>img {
+            width: 100%;
+            height: 600px;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 20px;
+            left: 45%;
+        }
+
+        .btn li {
+            width: 10px;
+            height: 10px;
+            float: left;
+            border-radius: 50%;
+            list-style: none;
+            background-color: #fff;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* 明星代言 */
+        .full-link {
+            background-image: url(http://www.pechoin.com/wp-content/uploads/2018/10/BG_04.jpg);
+            background-size: 100% 680px;
+            width: 100%;
+            height: 550px;
+            position: relative;
+        }
+
+        .div1 {
+            width: 600px;
+            height: 300px;
+            position: absolute;
+            top: 60px;
+            right: 50px;
+            color: white;
+        }
+
+        .video3,
+        .div1>p {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,4 +179,5 @@
     </div>
 </body>
 <script src="./roots.js"></script>
+
 </html>

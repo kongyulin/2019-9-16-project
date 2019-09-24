@@ -328,7 +328,7 @@ export default {
 #shopdetail {
   width: 1200px;
   height: 650px;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
   margin: 0px auto;
   display: flex;
   justify-content: space-around;
@@ -411,7 +411,7 @@ export default {
   width: 600px;
   margin-left: 10px;
   padding-left: 10px;
-  background: #e5e4e4;
+  background: #f1f3f4;
   height: 70px;
   line-height: 70px;
 }

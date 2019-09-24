@@ -8,6 +8,10 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
+// 静态托管
+app.use(express.static(__dirname+"/root"))
+
+
 // 启用cookie
 let secret = 'app.h5190304.com';
 app.use(cookieParser(secret));
@@ -21,7 +25,9 @@ app.use(session({
 
 // 跨域
 app.use((req, res, next) => {
+    // console.log(req.url)
     res.header('Access-Control-Allow-Origin', '*');
+
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.header('Access-Control-Allow-Methods', '*');
     // 支持cookie  必须指定具体的域名 
@@ -60,8 +66,7 @@ app.use('/user', require('./controller/login'))
 // 搜索页面数据  子路由
 app.use('/shop',require('./controller/shopdetial'))
 
-// 静态托管
-app.use(express.static(__dirname+"/root"))
+
 
 app.listen(8081,()=>{
     console.log('Server started on 8081')
