@@ -58,7 +58,7 @@ export default {
       }
     },
     toShopping() {
-      this.$router.push("/");
+      this.$router.push("/shoplist");
     },
     //计算并获取总价
     totalPrice(arr) {

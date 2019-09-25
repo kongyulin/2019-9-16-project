@@ -125,7 +125,7 @@ export default {
 
     // 购物车为空的时
     toshouye() {
-      this.$router.push("/");
+      this.$router.push("/shoplist");
     }
   },
   mounted: function() {
